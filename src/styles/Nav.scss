@@ -1,0 +1,13 @@
+@import './variables';
+.Nav{
+    display: flex;
+    padding: 0 1rem;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $foreground;
+    box-shadow: $default-shadow;
+    .logo{
+        font-size: 1.5rem;
+    }
+}

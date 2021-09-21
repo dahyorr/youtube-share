@@ -1,0 +1,9 @@
+@import './utilities';
+
+.Share{
+    @extend .container;
+    .result-list{
+        // background: red;
+        min-height: 80px
+    }
+}
