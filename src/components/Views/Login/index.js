@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import LoginForm from '../forms/LoginForm'
-import Index from '../Loader'
-import '../../styles/Auth.scss'
+import LoginForm from '../../forms/LoginForm'
+import Loader from '../../Loader'
+import '../../../styles/shared/Auth.scss'
 import { Link } from 'react-router-dom'
-import {useAuth} from '../../hooks'
+import {useAuth} from '../../../hooks'
 
 const Login = ({history, ...props}) => {
     const {logIn} = useAuth()
@@ -48,7 +48,7 @@ const Login = ({history, ...props}) => {
                 </div>
             </div>
         </div>
-        {loading && <Index/>}
+        {loading && <Loader/>}
         </>
     )
 }

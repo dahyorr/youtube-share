@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from 'antd'
-import '../../styles/Form.scss'
+import './Form.scss'
 
 const SearchForm = ({onSearch}) => {
     const handleSearch = (value) => {

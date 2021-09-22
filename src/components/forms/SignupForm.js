@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Input, Button} from 'antd'
-import '../../styles/Form.scss'
+import './Form.scss'
 import * as Yup from 'yup';
 
 const SignupForm = ({onSubmit, title, setError}) => {

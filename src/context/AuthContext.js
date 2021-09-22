@@ -23,11 +23,10 @@ export const AuthProvider = ({children}) => {
     }
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(firebaseAuth, (currentUser => {
+        return auth.onAuthStateChanged(firebaseAuth, (currentUser => {
             setUser(currentUser)
             setLoading(false)
         }))
-        return unsubscribe
     }, []);
 
     const value = {user, loading, signUp, logIn, signOut}

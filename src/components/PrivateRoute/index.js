@@ -1,8 +1,8 @@
 import React from 'react'
-import {useAuth} from '../hooks'
+import {useAuth} from '../../hooks'
 import {Route, Redirect} from 'react-router-dom'
 
-const PrivateRoute = ({component: Component, path, ...props}) => {
+const Index = ({component: Component, path, ...props}) => {
     const {user} = useAuth()
     return (
         <Route 
@@ -17,4 +17,4 @@ const PrivateRoute = ({component: Component, path, ...props}) => {
     )
 }
 
-export default PrivateRoute
+export default Index

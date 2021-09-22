@@ -1,9 +1,9 @@
 import React from 'react'
 import {Button} from 'antd'
-import '../styles/VideoItem.scss'
+import './VideoItem.scss'
 import {RiExternalLinkLine} from 'react-icons/ri'
 
-const VideoItem = ({video}) => {
+const Index = ({video}) => {
     console.log(video)
     return (
         <div className="VideoItem">
@@ -23,7 +23,7 @@ const VideoItem = ({video}) => {
     )
 }
 
-export default VideoItem
+export default Index
 
 // {
 //     "id": {

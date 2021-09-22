@@ -1,8 +1,8 @@
-import '../styles/Loader.scss'
+import './Loader.scss'
 
-const Loader = () =>{
+const Index = () =>{
     return <div className="Loader flex">
         <div className="spinner"></div>
     </div>
 }
-export default Loader
+export default Index

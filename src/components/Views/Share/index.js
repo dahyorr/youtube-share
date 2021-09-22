@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import '../../styles/Share.scss'
-import SearchForm from '../forms/SearchForm'
-import VideoItem from '../VideoItem'
-import YoutubeApi from '../../helpers/YoutubeApi'
+import './Share.scss'
+import SearchForm from '../../forms/SearchForm'
+import VideoItem from '../../VideoItem'
+import YoutubeApi from '../../../helpers/YoutubeApi'
 
 
 const Share = () => {

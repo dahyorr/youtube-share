@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAuth } from '../hooks'
-import '../styles/Nav.scss'
+import { useAuth } from '../../hooks'
+import './Nav.scss'
 
 const Nav = (props) => {
     const {user, signOut} = useAuth()
