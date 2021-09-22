@@ -1,0 +1,58 @@
+.VideoItem{
+        height: 200px;
+    display: flex;
+    border-top: 1px solid rgb(82, 81, 81);
+    padding: 0.25rem 0;
+    img{
+        margin: 0.25rem 0
+    }
+    .info{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .text{
+        text-align: justify;
+        h3{
+            text-align: left;
+        }
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        justify-self: end;
+        .button{
+            width: 49%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .VideoItem{
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        justify-content: center;
+
+        .text{
+            text-align: justify;
+            h3{
+                text-align: center;
+            }
+        }
+        .info{
+            margin-left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .VideoItem{
+        img{
+            width: 250px;
+        }
+    }
+}

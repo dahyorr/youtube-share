@@ -12,7 +12,8 @@ const Share = () => {
     const onSearch = (term) => {
         YoutubeApi.get('/search', {
             params: {
-                q: term 
+                q: term,
+                type: 'video'
             }
         })
         .then((res) => {
