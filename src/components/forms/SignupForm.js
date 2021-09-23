@@ -1,29 +1,15 @@
 import React, {useState} from 'react'
 import {Input, Button} from 'antd'
 import './Form.scss'
-import * as Yup from 'yup';
 
-const SignupForm = ({onSubmit, title, setError}) => {
+const SignupForm = ({onSubmit}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
-
-    const ValidationSchema = Yup.object().shape({
-        email: Yup.string().email().required(),
-        password: Yup.string().required().min(6, "Pasword must be at least 6 characters"),
-        confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    })
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        ValidationSchema.validate({email, password, confirmPassword})
-            .then(values => {
-                setError("")
-                onSubmit(values)
-            })
-            .catch(err => setError(err.errors[0]))
+        onSubmit({email, password, confirmPassword})
     }
 
     return (
@@ -65,7 +51,7 @@ const SignupForm = ({onSubmit, title, setError}) => {
             </div>
 
             <Button type="primary" block htmlType="submit" >
-                {title}
+                Sign Up
             </Button>
         </form>
     )

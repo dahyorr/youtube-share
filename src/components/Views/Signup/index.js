@@ -4,19 +4,36 @@ import Loader from '../../Loader'
 import '../../../styles/shared/Auth.scss'
 import { Link } from 'react-router-dom'
 import {useAuth} from '../../../hooks'
+import * as Yup from 'yup';
+import {validate} from '../../../helpers/utils'
 
-const Signup = () => {
+const ValidationSchema = Yup.object().shape({
+    email: Yup.string().email().required(),
+    password: Yup.string().required().min(6, "Pasword must be at least 6 characters"),
+    confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+})
+
+const Signup = ({history}) => {
     const {signUp} = useAuth()
     const [loading, setloading] = useState(false)
     const [error, setError] = useState("")
 
-    const onSubmit = async (values) => {
+    const onSubmit = async (data) => {
         setError("")
         setloading(true)
         try{
+            const values = await validate(ValidationSchema, data)
             await signUp(values.email, values.password)
+            setloading(false)
+            history.push('/')
         }
         catch(err){
+            setloading(false)
+            if(err.name === "ValidationError"){
+                setError(err.errors[0])
+                return;
+            }
             switch(err.code){
                 case "auth/email-already-in-use":
                     setError('This email Already exists')
@@ -26,7 +43,6 @@ const Signup = () => {
                     break;
             }
         }
-        setloading(false)
     }
 
 
@@ -40,7 +56,6 @@ const Signup = () => {
                     <SignupForm 
                     onSubmit={onSubmit}
                     setError={setError} 
-                    title="Sign Up"
                     />
                     <p className="form-info">Have an account ?, <Link to="/login">Sign In</Link></p>
                 </div>

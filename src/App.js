@@ -11,8 +11,8 @@ const App = () => {
   return (
     <AuthProvider>
     <div className="App">
-      <Nav/>
       <BrowserRouter>
+        <Nav/>
         <Switch>
           <Route path="/login" render={(props) => <Login {...props}/>}/>
           <Route path="/signup" render={(props) => <Signup {...props} />}/>

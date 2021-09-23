@@ -1,20 +1,25 @@
 import React from 'react'
 import { useAuth } from '../../hooks'
+import {Button} from 'antd'
+import {Link} from 'react-router-dom'
 import './Nav.scss'
 
 const Nav = (props) => {
     const {user, signOut} = useAuth()
-
     return (
         <div className='Nav'>
             <div className="logo">Youtube Share</div>
             <div className="buttons">
                 {
                 user
-                ?<button onClick={signOut}>Sign out</button>
+                ?<Button onClick={signOut} title="sign-out" type="link">Sign Out</Button>
                 :(<>
-                    <button>Sign in</button>
-                    <button>Sign up</button>
+                    <Link to="/login" title='sign-in'>
+                        <Button type="link" >Sign In</Button>
+                    </Link>
+                    <Link to="/signup" title='sign-up'>
+                        <Button type="link">Sign Up</Button>
+                    </Link>
                 </>)
                 }        
             </div>

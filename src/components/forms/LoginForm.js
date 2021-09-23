@@ -1,25 +1,14 @@
 import React, {useState} from 'react'
 import {Input, Button} from 'antd'
 import './Form.scss'
-import * as Yup from 'yup';
 
-const LoginForm = ({onSubmit, title, setError}) => {
+const LoginForm = ({onSubmit}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const ValidationSchema = Yup.object().shape({
-        email: Yup.string().email().required(),
-        password: Yup.string().required().min(6, "Pasword must be at least 6 characters"),
-    });
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        ValidationSchema.validate({email, password})
-            .then(values => {
-                setError("")
-                onSubmit(values)
-            })
-            .catch(err => setError(err.errors[0]))
+        onSubmit({email, password})
     }
 
     return (
@@ -49,7 +38,7 @@ const LoginForm = ({onSubmit, title, setError}) => {
             </div>
 
             <Button type="primary" block htmlType="submit" >
-                {title}
+                Login
             </Button>
         </form>
     )

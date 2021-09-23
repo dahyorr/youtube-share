@@ -4,15 +4,16 @@ import './Form.scss'
 
 const SearchForm = ({onSearch}) => {
     const handleSearch = (value) => {
-        if(value.trim().length > 0) {
-            onSearch(value.trim());
+        const term = value.trim()
+        if(term.length > 0) {
+            onSearch(term);
         }
     };
 
     return (
         <div className="form-group" style={{maxWidth: '768px', margin: '1rem auto' }}>
             <Input.Search
-                placeholder="input search text"
+                placeholder="Search for a video"
                 enterButton="Search"
                 size="large"
                 onSearch={handleSearch}

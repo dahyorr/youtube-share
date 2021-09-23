@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Loader from '../components/Loader';
 import {auth} from '../helpers/firebase'
 
-export const Context = React.createContext()
+export const Context = React.createContext({})
 const firebaseAuth = auth.getAuth();
 
 export const AuthProvider = ({children}) => {
@@ -18,7 +18,7 @@ export const AuthProvider = ({children}) => {
         return auth.signInWithEmailAndPassword(firebaseAuth, email, password)
     }
 
-    const signOut = (email, password) => {
+    const signOut = () => {
         return auth.signOut(firebaseAuth)
     }
 
