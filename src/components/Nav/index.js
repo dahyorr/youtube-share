@@ -8,7 +8,7 @@ const Nav = (props) => {
     const {user, signOut} = useAuth()
     return (
         <div className='Nav'>
-            <div className="logo">Youtube Share</div>
+            <Link to="/" style={{color: 'black'}}><div className="logo">Youtube Share</div></Link>
             <div className="buttons">
                 {
                 user

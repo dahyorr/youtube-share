@@ -6,11 +6,14 @@ import { AuthProvider } from "./context/AuthContext";
 import Home from "./components/Views/Home";
 import Share from "./components/Views/Share";
 import PrivateRoute from "./components/PrivateRoute";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
     <AuthProvider>
     <div className="App">
+      <ToastContainer/>
       <BrowserRouter>
         <Nav/>
         <Switch>

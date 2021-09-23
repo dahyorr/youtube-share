@@ -5,7 +5,7 @@ import '../../../styles/shared/Auth.scss'
 import { Link } from 'react-router-dom'
 import {useAuth} from '../../../hooks'
 import * as Yup from 'yup';
-import {validate} from '../../../helpers/utils'
+import {validate, capitalize} from '../../../helpers/utils'
 
 const ValidationSchema = Yup.object().shape({
     email: Yup.string().email().required(),
@@ -29,7 +29,7 @@ const Login = ({history, ...props}) => {
         catch(err){
             setloading(false)
             if(err.name === "ValidationError"){
-                setError(err.errors[0])
+                setError(capitalize(err.errors[0]))
                 return;
             }
             switch(err.code){

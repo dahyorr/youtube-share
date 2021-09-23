@@ -2,8 +2,11 @@
 
 .Share{
     @extend .container;
+    padding-bottom: 1rem;       
+
     .result-list{
-        // background: red;
-        min-height: 80px
+        width: 100%;
+        min-height: 100px;
+        padding-bottom: 1rem;    
     }
 }
