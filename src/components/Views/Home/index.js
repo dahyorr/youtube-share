@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import {Button} from 'antd'
-import {Link} from 'react-router-dom'
 import './Home.scss'
 import {useDb} from '../../../hooks'
 import VideoItem from '../../../components/VideoItem'
 
-const Home = () => {
+const Home = ({history}) => {
     const {getShares} = useDb()
     const [videos, setVideos] = useState({})
 
@@ -22,9 +21,7 @@ const Home = () => {
 
     return (
         <div className="Home">
-            <Link to='/share' >
-                <Button type="primary" className='share-button'>Share a video</Button>
-            </Link>
+            <Button title={"share-a-video"} type="primary" className='share-button' onClick={() => history.push('/share')} >Share a video</Button>
             <h2>Shared Recently</h2>
             <div className="video-list">
                 {content}

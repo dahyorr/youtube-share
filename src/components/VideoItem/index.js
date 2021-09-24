@@ -18,7 +18,7 @@ const Index = ({video, onShare, noShare}) => {
                     {noShare && <p title='shared-by'><strong>Shared By: </strong>{video.author}</p>}
                 </div>
                 <div className="buttons">
-                    {!noShare && <Button type="primary" className="button" onClick={() => onShare(video)}>Share <FiShare className={'icon'}/></Button>}
+                    {!noShare && <Button type="primary" className="button" onClick={() => onShare(video)} title={'share-button'}>Share <FiShare className={'icon'}/></Button>}
                     <Button title="open-in-youtube" className="button" href={`https://youtube.com/watch?v=${video.id.videoId}`} target="_blank">Open In Youtube <RiExternalLinkLine className={'icon'}/></Button>
                 </div>
             </div>

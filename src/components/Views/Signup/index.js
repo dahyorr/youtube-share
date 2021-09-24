@@ -16,20 +16,20 @@ const ValidationSchema = Yup.object().shape({
 
 const Signup = ({history}) => {
     const {signUp} = useAuth()
-    const [loading, setloading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
 
     const onSubmit = async (data) => {
         setError("")
-        setloading(true)
+        setLoading(true)
         try{
             const values = await validate(ValidationSchema, data)
             await signUp(values.email, values.password)
-            setloading(false)
+            setLoading(false)
             history.push('/')
         }
         catch(err){
-            setloading(false)
+            setLoading(false)
             if(err.name === "ValidationError"){
                 setError(err.errors[0])
                 return;
@@ -52,7 +52,7 @@ const Signup = ({history}) => {
             <div className="content">
                 <h2 className="title">Sign Up</h2>
                 <div className="form-container">
-                    {error && <p className="error">{error}</p>}
+                    {error && <p className="error" title={'error'}>{error}</p>}
                     <SignupForm 
                     onSubmit={onSubmit}
                     setError={setError} 

@@ -9,7 +9,7 @@ const MockLogin = () => (
     </BrowserRouter>
 )
 
-describe("Login", () => {
+describe("Share", () => {
 
     beforeEach(async () => {
         render(<MockLogin />);
@@ -20,14 +20,13 @@ describe("Login", () => {
     })
 
     it("Should be able to search for a value", async () => {
-        const emailInput = screen.getByLabelText('Email')
-        const passwordInput = screen.getByLabelText('Password')
+        const searchInput = screen.getByPlaceholderText('Search for a video')
         const submitButton = screen.getByRole('button')
-        fireEvent.change(emailInput, {target:{value: 'test@test'}})
-        fireEvent.change(passwordInput, {target:{value: 'testtest'}})
+        fireEvent.change(searchInput, {target:{value: 'test'}})
         await act(async () => fireEvent.click(submitButton));
-        const error = screen.getByTitle('error')
-        expect(error).toBeInTheDocument()
+        const openInYoutube = await screen.findAllByText('Open In Youtube')
+
+        expect(openInYoutube.length).toBe(10)
     })
 
     // it("Should be able to login", async () => {
