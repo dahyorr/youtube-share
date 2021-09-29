@@ -40,11 +40,10 @@ const mockData = {
         }
     }
 }
+
 jest.mock("../../../../hooks/useDb", () => ({
     useDb: () => ({
-        getShares: (setState) => {
-            setState(mockData)
-        }
+        shares: mockData
     })
 }));
 

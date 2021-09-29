@@ -1,21 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {Button} from 'antd'
 import './Home.scss'
 import {useDb} from '../../../hooks'
 import VideoItem from '../../../components/VideoItem'
 
 const Home = ({history}) => {
-    const {getShares} = useDb()
-    const [videos, setVideos] = useState({})
+    const {shares} = useDb()
 
-
-    useEffect(() => {
-        getShares(setVideos)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    const content = videos 
-    ? Object.keys(videos).reverse().map(key => <VideoItem video={videos[key]} key={key} noShare/>)
+    const content = shares 
+    ? Object.keys(shares).reverse().map(key => <VideoItem video={shares[key]} key={key} noShare/>)
     : <h3>No Videos have been shared yet</h3>
 
 
